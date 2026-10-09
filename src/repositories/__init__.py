@@ -1,4 +1,5 @@
 """Репозитории для работы с БД."""
+
 from src.repositories.event import EventRepository
 from src.repositories.place import PlaceRepository
 from src.repositories.sync import SyncRepository

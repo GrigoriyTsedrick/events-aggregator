@@ -1,4 +1,5 @@
 """Зависимости FastAPI: сессия, репозитории, сервисы."""
+
 from collections.abc import AsyncIterator
 from typing import Annotated
 
@@ -42,6 +43,7 @@ ClientDep = Annotated[EventsProviderClient, Depends(get_events_provider_client)]
 
 # === Репозитории ===
 
+
 def get_event_repository(session: SessionDep) -> EventRepository:
     return EventRepository(session)
 
@@ -65,6 +67,7 @@ SyncRepoDep = Annotated[SyncRepository, Depends(get_sync_repository)]
 
 
 # === Сервисы ===
+
 
 def get_event_service(events: EventRepoDep) -> EventService:
     return EventService(events)

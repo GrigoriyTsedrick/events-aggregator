@@ -1,4 +1,5 @@
 """Клиент для работы с внешним Events Provider API."""
+
 import logging
 from typing import Any
 
@@ -29,7 +30,6 @@ class EventsProviderClient:
             base_url=self._base_url,
             headers={"x-api-key": api_key},
             timeout=timeout,
-            verify=False,  # dev-кластер с самоподписанным сертификатом
             follow_redirects=True,
         )
 
@@ -56,6 +56,7 @@ class EventsProviderClient:
 
         Returns:
             Словарь с полями next, previous, results.
+
         """
         params: dict[str, str] = {"changed_at": changed_at}
         if cursor:
@@ -93,6 +94,7 @@ class EventsProviderClient:
 
         Returns:
             ticket_id — идентификатор билета.
+
         """
         logger.info("Регистрация на событие %s, место %s", event_id, seat)
         payload = {
@@ -113,6 +115,7 @@ class EventsProviderClient:
 
         Returns:
             True, если отмена прошла успешно.
+
         """
         logger.info("Отмена регистрации на событие %s, ticket %s", event_id, ticket_id)
         response = await self._client.request(

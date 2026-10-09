@@ -1,4 +1,5 @@
 """Итератор по всем страницам событий (cursor-based пагинация)."""
+
 import logging
 from collections.abc import AsyncIterator
 from typing import Any

@@ -1,4 +1,5 @@
 """Эндпоинт ручного запуска синхронизации."""
+
 from fastapi import APIRouter
 
 from src.api.deps import SyncServiceDep

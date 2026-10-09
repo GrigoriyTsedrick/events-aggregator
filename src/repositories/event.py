@@ -1,4 +1,5 @@
 """Репозиторий для работы с событиями."""
+
 from datetime import date, datetime
 
 from sqlalchemy import func, select
@@ -37,9 +38,7 @@ class EventRepository(BaseRepository[Event]):
     async def get_with_place(self, event_id) -> Event | None:
         """Получить событие вместе с площадкой (eager load)."""
         result = await self.session.execute(
-            select(Event)
-            .where(Event.id == event_id)
-            .options(selectinload(Event.place))
+            select(Event).where(Event.id == event_id).options(selectinload(Event.place))
         )
         return result.scalar_one_or_none()
 

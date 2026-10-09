@@ -1,4 +1,5 @@
 """Репозиторий для работы с площадками."""
+
 from sqlalchemy.dialects.postgresql import insert
 
 from src.models.place import Place

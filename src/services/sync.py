@@ -1,6 +1,7 @@
 """Бизнес-логика синхронизации событий с Events Provider API."""
+
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from src.client.events_provider import EventsProviderClient
 from src.client.paginator import EventsPaginator
@@ -33,6 +34,7 @@ class SyncService:
 
         Returns:
             Словарь со статистикой: processed, errors, changed_at.
+
         """
         meta = await self._sync_meta.get_singleton()
 
@@ -67,7 +69,7 @@ class SyncService:
                     logger.exception("Ошибка сохранения события %s: %s", event.get("id"), exc)
 
             # Обновляем метаданные
-            now = datetime.now(timezone.utc)
+            now = datetime.now(UTC)
             await self._sync_meta.update(
                 meta,
                 last_sync_time=now,

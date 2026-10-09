@@ -1,4 +1,5 @@
 """Бизнес-логика получения событий."""
+
 from datetime import date
 
 from src.models.event import Event

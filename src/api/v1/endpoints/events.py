@@ -1,4 +1,5 @@
 """Эндпоинты для работы с событиями."""
+
 from datetime import date
 from typing import Annotated
 from uuid import UUID

@@ -1,4 +1,5 @@
 """Репозиторий для метаданных синхронизации."""
+
 from sqlalchemy import select
 
 from src.models.sync_metadata import SyncMetadata

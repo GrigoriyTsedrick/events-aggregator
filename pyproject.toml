@@ -29,8 +29,16 @@ target-version = "py312"
 select = ["E", "F", "I", "N", "W", "D", "UP", "B", "C4", "SIM"]
 ignore = ["D203", "D213"]
 
+# Все исключения — в ОДНОЙ секции
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["D103", "D101", "D102"]
+"__init__.py" = ["D104"]
+"alembic/versions/*" = ["D400", "D415", "D103", "UP035", "UP007", "I001"]
+"src/client/events_provider.py" = ["D105", "D107"]
+"src/client/paginator.py" = ["D105", "D107"]
+"src/repositories/base.py" = ["D107", "UP046"]
+"src/services/*.py" = ["D102", "D107"]
+"src/api/deps.py" = ["D103"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

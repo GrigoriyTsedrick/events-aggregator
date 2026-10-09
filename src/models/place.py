@@ -1,4 +1,5 @@
 """Модель площадки."""
+
 from datetime import datetime
 from uuid import UUID
 
@@ -14,9 +15,7 @@ class Place(Base):
 
     __tablename__ = "places"
 
-    id: Mapped[UUID] = mapped_column(
-        PG_UUID(as_uuid=True), primary_key=True
-    )
+    id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), primary_key=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     city: Mapped[str] = mapped_column(String(100), nullable=False)
     address: Mapped[str] = mapped_column(String(255), nullable=False)

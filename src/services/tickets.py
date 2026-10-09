@@ -1,4 +1,5 @@
 """Бизнес-логика регистрации и отмены билетов."""
+
 import logging
 from uuid import UUID
 

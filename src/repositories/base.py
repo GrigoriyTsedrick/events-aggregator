@@ -1,4 +1,5 @@
 """Базовый репозиторий с общими методами."""
+
 from typing import Generic, TypeVar
 from uuid import UUID
 

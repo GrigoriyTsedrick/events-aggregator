@@ -1,4 +1,5 @@
 """Схемы свободных мест."""
+
 from uuid import UUID
 
 from pydantic import BaseModel

@@ -3,6 +3,7 @@
 По требованиям LMS все ошибки валидации должны возвращаться как 400,
 а не 422 (стандарт FastAPI).
 """
+
 from fastapi import Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse

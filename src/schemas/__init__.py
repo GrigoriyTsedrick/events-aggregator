@@ -1,4 +1,5 @@
 """Pydantic-схемы."""
+
 from src.schemas.event import (
     EventDetail,
     EventListResponse,

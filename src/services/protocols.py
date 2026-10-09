@@ -3,6 +3,7 @@
 Бизнес-логика не должна знать про конкретные реализации БД и HTTP-клиента —
 она работает через эти протоколы.
 """
+
 from typing import Protocol
 
 from src.models.event import Event

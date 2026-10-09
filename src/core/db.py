@@ -1,4 +1,5 @@
 """Подключение к БД и базовый класс моделей."""
+
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,

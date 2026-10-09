@@ -1,4 +1,5 @@
 """Главный роутер v1."""
+
 from fastapi import APIRouter
 
 from src.api.v1.endpoints import events, health, sync, tickets

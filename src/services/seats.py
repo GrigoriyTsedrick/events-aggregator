@@ -1,4 +1,5 @@
 """Бизнес-логика получения свободных мест с кэшем."""
+
 import logging
 import time
 from uuid import UUID

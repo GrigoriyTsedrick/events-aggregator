@@ -1,15 +1,16 @@
 """Настройка Alembic для асинхронного SQLAlchemy."""
+
 import asyncio
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
+import src.models  # noqa: F401 — чтобы Alembic увидел все модели
+from alembic import context
 from src.core.config import settings
 from src.core.db import Base
-import src.models  # noqa: F401 — чтобы Alembic увидел все модели
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.database_url)

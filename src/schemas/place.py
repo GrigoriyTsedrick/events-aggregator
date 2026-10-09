@@ -1,4 +1,5 @@
 """Схемы площадки."""
+
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict
