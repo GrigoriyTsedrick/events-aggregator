@@ -1,4 +1,5 @@
 """Точка входа FastAPI."""
+
 import asyncio
 from contextlib import asynccontextmanager, suppress
 
@@ -14,9 +15,7 @@ from src.workers.sync_worker import run_periodic_sync
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Жизненный цикл приложения: старт и остановка фонового воркера."""
-    sync_task = asyncio.create_task(
-        run_periodic_sync(settings.sync_interval_hours)
-    )
+    sync_task = asyncio.create_task(run_periodic_sync(settings.sync_interval_hours))
     yield
     sync_task.cancel()
     with suppress(asyncio.CancelledError):

@@ -1,4 +1,5 @@
 """Фоновый воркер периодической синхронизации событий."""
+
 import asyncio
 import logging
 
@@ -38,9 +39,7 @@ async def run_periodic_sync(interval_hours: int) -> None:
     Останавливается через отмену задачи при shutdown.
     """
     interval_seconds = interval_hours * 3600
-    logger.info(
-        "Периодическая синхронизация запущена (интервал %d ч)", interval_hours
-    )
+    logger.info("Периодическая синхронизация запущена (интервал %d ч)", interval_hours)
 
     while True:
         try:

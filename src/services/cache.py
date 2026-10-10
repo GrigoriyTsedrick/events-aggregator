@@ -4,6 +4,7 @@
 Это решает проблему, когда SeatsService создаётся на каждый запрос
 и его собственный self._cache не сохраняется между запросами.
 """
+
 import time
 from typing import Any
 
