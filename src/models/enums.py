@@ -1,8 +1,8 @@
 """Перечисления, используемые в моделях и сервисах."""
-from enum import Enum
+from enum import StrEnum
 
 
-class EventStatus(str, Enum):
+class EventStatus(StrEnum):
     """Статусы события.
 
     Внешний API возвращает эти значения в виде строк.

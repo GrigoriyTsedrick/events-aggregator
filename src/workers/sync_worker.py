@@ -15,18 +15,20 @@ logger = logging.getLogger(__name__)
 
 async def _run_sync_once() -> dict:
     """Выполнить одну синхронизацию с новой сессией и клиентом."""
-    async with EventsProviderClient(
-        base_url=settings.events_provider_url,
-        api_key=settings.events_provider_api_key,
-    ) as client:
-        async with async_session_maker() as session:
-            service = SyncService(
-                client=client,
-                events=EventRepository(session),
-                places=PlaceRepository(session),
-                sync_meta=SyncRepository(session),
-            )
-            return await service.sync()
+    async with (
+        EventsProviderClient(
+            base_url=settings.events_provider_url,
+            api_key=settings.events_provider_api_key,
+        ) as client,
+        async_session_maker() as session,
+    ):
+        service = SyncService(
+            client=client,
+            events=EventRepository(session),
+            places=PlaceRepository(session),
+            sync_meta=SyncRepository(session),
+        )
+        return await service.sync()
 
 
 async def run_periodic_sync(interval_hours: int) -> None:

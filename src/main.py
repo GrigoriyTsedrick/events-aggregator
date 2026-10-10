@@ -1,6 +1,6 @@
 """Точка входа FastAPI."""
 import asyncio
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
 
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
@@ -19,10 +19,8 @@ async def lifespan(app: FastAPI):
     )
     yield
     sync_task.cancel()
-    try:
+    with suppress(asyncio.CancelledError):
         await sync_task
-    except asyncio.CancelledError:
-        pass
 
 
 app = FastAPI(

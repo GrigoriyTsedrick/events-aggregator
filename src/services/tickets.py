@@ -4,6 +4,7 @@ import logging
 from uuid import UUID
 
 from src.client.events_provider import EventsProviderError
+from src.models.enums import EventStatus
 from src.services.exceptions import (
     EventNotFoundError,
     EventNotPublishedError,
@@ -15,7 +16,6 @@ from src.services.protocols import (
     EventsProviderClientProtocol,
     TicketRepositoryProtocol,
 )
-from src.models.enums import EventStatus
 
 logger = logging.getLogger(__name__)
 
