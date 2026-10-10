@@ -8,6 +8,7 @@ from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.core.db import Base
+from src.models.enums import EventStatus
 
 
 class Event(Base):
@@ -27,7 +28,7 @@ class Event(Base):
 
     event_time: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     registration_deadline: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
-    status: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
+    status: Mapped[EventStatus] = mapped_column(String(50), nullable=False, index=True)
     number_of_visitors: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 
     changed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)

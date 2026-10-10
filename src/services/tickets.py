@@ -15,6 +15,7 @@ from src.services.protocols import (
     EventsProviderClientProtocol,
     TicketRepositoryProtocol,
 )
+from src.models.enums import EventStatus
 
 logger = logging.getLogger(__name__)
 
@@ -52,7 +53,7 @@ class CreateTicketUsecase:
         if event is None:
             raise EventNotFoundError(f"Событие {event_id} не найдено")
 
-        if event.status != "published":
+        if event.status != EventStatus.PUBLISHED:
             raise EventNotPublishedError(
                 f"Событие {event_id} не опубликовано (status={event.status})"
             )
